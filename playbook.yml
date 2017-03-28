@@ -1,0 +1,18 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+---
+
+- hosts: production
+
+  remote_user: deployer
+  gather_facts: yes
+  become: yes
+
+  roles:
+    - { role: core.role, tags: [ 'core-role' ] }
+    - { role: active-directory.role, tags: [ 'active-directory-role' ] }
+    - { role: RHEL-STIG.role, tags: [ 'rhel-stig-role' ] }
+
+  vars_files:
+    - vars/settings.yml
+    - vars/settings.vault.yml

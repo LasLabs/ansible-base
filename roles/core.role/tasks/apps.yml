@@ -1,0 +1,23 @@
+---
+
+- name: Upgrade all packages
+  yum: name=* state=latest
+  
+- name: Install EPEL repo
+  yum: name=epel-release state=present
+
+- name: Install default software
+  yum: name={{ item }} state=latest
+  with_items:
+    - git
+    - tmux
+    - nano
+    - python
+    - python-devel
+    - python-pip
+    - firewalld
+    - bzip2
+
+- name: Ensure that firewalld is enabled
+  service: name=firewalld state=started enabled=yes
+

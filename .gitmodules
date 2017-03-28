@@ -1,0 +1,6 @@
+[submodule "roles/RHEL-STIG.role"]
+	path = roles/RHEL-STIG.role
+	url = https://github.com/MindPointGroup/RHEL7-STIG.git
+[submodule "roles/active-directory.role"]
+	path = roles/active-directory.role
+	url = https://github.com/LasLabs/ansible-linux-active-directory.git

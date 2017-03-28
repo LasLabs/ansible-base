@@ -1,0 +1,15 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
+---
+# Basic system preferences file for core role
+
+- name: Set the system hostname
+  shell: hostnamectl set-hostname {{ system_hostname }}
+
+- name: Set prefered timezone
+  file: src=/usr/share/zoneinfo/{{ system_timezone }}
+        dest=/etc/localtime state=link force=yes
+
+- name: Verify Root has a .ssh directory
+  file: path=/root/.ssh state=directory

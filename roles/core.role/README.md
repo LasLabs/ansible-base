@@ -1,38 +1,68 @@
-Role Name
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
+
+Core Role
 =========
 
-A brief description of the role goes here.
+This role handles basic server setup such as:
+* Setting the server timezone and hostname
+* Installing basic applications needed on all servers
+* Installing fail2ban and configuring for SSH protection
+* Hardening the system SSHd configuration to prevent DOS attacks
 
-Requirements
-------------
+Usage
+=====
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Use like any other playbook.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: core.role }
+```
 
-License
--------
+Role Variables
+--------------
+| Name | Description |
+| :--: | :---------: |
+| system_hostname | FQDN Hostname for the machine |
+| system_timezone | Timezone for the server. UTC is default |
+| fail2ban_service_enabled | Enable the fail2ban service. Options are yes/no |
+| fail2ban_service_state | State of the service. Options are started/stopped |
+| fail2ban_pkg_state | State of the package. Default is installed |
+| fail2ban_config_ignoreip | Any IP CIRDs that are exempt from bans |
+| fail2ban_config_bantime | Default time to ban an IP. Default is 600 seconds |
+| fail2ban_config_maxretry | Maximum connection retries before ban is issued |
+| fail2ban_config_destemail | The user who should receive emails from fail2ban about bans |
+| fail2ban_config_jail_ssh_enabled | Monitor SSH login attempts for potential attacks. Options are yes/no |
+| fail2ban_config_jail_sshddos_enabled | Enable SSH DOS protection Options are yes/no |
 
-BSD
+Requirements
+============
 
-Author Information
-------------------
+There are no prerequisites.
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Dependencies
+============
+
+There are no dependencies.
+
+Credits
+=======
+
+Contributors
+============
+
+* Ted Salmon <tsalmon@laslabs.com>
+
+Maintainer
+==========
+
+[![LasLabs Inc.](https://laslabs.com/logo.png)](https://laslabs.com)
+
+This module is maintained by [LasLabs Inc.](https://laslabs.com)
+
+* https://repo.laslabs.com/projects/DEP/repos/ansible-base/

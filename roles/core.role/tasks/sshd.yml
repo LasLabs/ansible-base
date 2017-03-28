@@ -1,0 +1,9 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
+---
+# SSH Server Hardening in core role
+
+- name: Copy in SSH Server Config
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config
+  notify: restart-sshd

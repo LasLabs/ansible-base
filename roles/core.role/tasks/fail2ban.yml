@@ -1,0 +1,14 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
+---
+# fail2ban tasks for core role
+
+- name: Install fail2ban on the system
+  yum: name=fail2ban state={{ fail2ban_pkg_state }}
+  tags: package
+
+- name: configure fail2ban local jails
+  action: template src=jail.local.j2 dest=/etc/fail2ban/jail.local mode=0644
+  notify: restart-fail2ban
+  tags: configuration
