@@ -4,9 +4,17 @@ Ansible Base System Playbook
 ============================
 
 This playbook should be used to provision basic roles on a newly deployed server.
+
+Usage
+=====
+
 You should make sure to init all submodules, like so:
 ```
 git submodule update --init --recursive
+```
+or clone this repo recursively, like so:
+```
+git clone --recursive $URI
 ```
 
 From there, you have three basic roles to provision:
@@ -16,27 +24,6 @@ From there, you have three basic roles to provision:
 
 See the individual roles for the configuration options that are available. Use
  settings.yml and settings.vault.yml for your custom options.
-
-Usage
-=====
-
-Use like any other playbook.
-
-Variables
-----------
-
-Requirements
-============
-
-There are no prerequisites.
-
-Dependencies
-============
-
-There are no dependencies.
-
-Credits
-=======
 
 Contributors
 ============

@@ -28,7 +28,7 @@ Role Variables
 --------------
 | Name | Description |
 | :--: | :---------: |
-| system_hostname | FQDN Hostname for the machine |
+| system_hostname | FQDN Hostname for the machine **This should be set in the inventory file per host; See below**|
 | system_timezone | Timezone for the server. UTC is default |
 | fail2ban_service_enabled | Enable the fail2ban service. Options are yes/no |
 | fail2ban_service_state | State of the service. Options are started/stopped |
@@ -39,6 +39,12 @@ Role Variables
 | fail2ban_config_destemail | The user who should receive emails from fail2ban about bans |
 | fail2ban_config_jail_ssh_enabled | Monitor SSH login attempts for potential attacks. Options are yes/no |
 | fail2ban_config_jail_sshddos_enabled | Enable SSH DOS protection Options are yes/no |
+
+Inventory sample:
+```
+[production]
+host1 system_hostname=ec2-xxxx-prod-vml-01.example.com
+```
 
 Requirements
 ============

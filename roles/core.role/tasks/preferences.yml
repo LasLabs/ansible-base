@@ -6,6 +6,7 @@
 
 - name: Set the system hostname
   shell: hostnamectl set-hostname {{ system_hostname }}
+  when: system_hostname
 
 - name: Set prefered timezone
   file: src=/usr/share/zoneinfo/{{ system_timezone }}
