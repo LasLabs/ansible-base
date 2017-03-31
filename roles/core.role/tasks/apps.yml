@@ -1,0 +1,25 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
+---
+
+- name: Upgrade all packages
+  yum: name=* state=latest
+  
+- name: Install EPEL repo
+  yum: name=epel-release state=present
+
+- name: Install default software
+  yum: name={{ item }} state=latest
+  with_items:
+    - git
+    - tmux
+    - nano
+    - python
+    - python-devel
+    - python-pip
+    - firewalld
+    - bzip2
+
+- name: Ensure that firewalld is enabled
+  service: name=firewalld state=started enabled=yes

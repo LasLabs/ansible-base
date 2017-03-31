@@ -1,2 +1,11 @@
+# Copyright 2017 LasLabs Inc.
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
+
 ---
 # tasks file for core
+
+- include: apps.yml tags=applications
+- include: fail2ban.yml tags=fail2ban
+- include: preferences.yml tags=system-preferences
+- include: sshd.yml tags=openssh
+  
