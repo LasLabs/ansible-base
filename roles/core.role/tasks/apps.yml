@@ -12,6 +12,7 @@
 - name: Install default software
   yum: name={{ item }} state=latest
   with_items:
+    - ca-certificates
     - git
     - tmux
     - nano
