@@ -4,3 +4,6 @@
 [submodule "roles/RHEL-STIG.role"]
 	path = roles/RHEL-STIG.role
 	url = https://github.com/MindPointGroup/RHEL7-STIG.git
+[submodule "roles/sumocollector.role"]
+	path = roles/sumocollector.role
+	url = https://github.com/wgregorian/ansible-sumocollector

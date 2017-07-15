@@ -21,6 +21,7 @@ From there, you have three basic roles to provision:
 * core.role - Basic system configuration
 * active-directory.role - Provision SSSD to connect server to an AD auth back-end
 * RHEL-STIG.role - Advanced system hardening role
+* sumocollector.role - SumoLogic collector role
 
 See the individual roles for the configuration options that are available. Use
  settings.yml and settings.vault.yml for your custom options.
@@ -29,6 +30,7 @@ Contributors
 ============
 
 * Ted Salmon <tsalmon@laslabs.com>
+* Dave Lasley <dave@laslabs.com>
 
 Maintainer
 ==========
